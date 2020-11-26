@@ -19,7 +19,7 @@ public class SortService {
                 currentPos--;
             }
         }
-        logger.info("Insertion sort is complete");
+        logger.info("Insertion sort is complete, result - {}", array);
     }
 
     public void choiceSort(WrapperArray array) {
@@ -36,12 +36,12 @@ public class SortService {
                 array.setItem(temp, indexOfMinItem);
             }
         }
-        logger.info("Choice sort is complete");
+        logger.info("Choice sort is complete, result - {}", array);
     }
 
     public void mergeSort(WrapperArray array) {
         mergeSortRealize(array, array.getSize());
-        logger.info("Merge sort is complete");
+        logger.info("Merge sort is complete, result - {}", array);
     }
 
     private void merge(WrapperArray array, WrapperArray leftArray, WrapperArray rightArray, int leftIndex, int rightIndex) {

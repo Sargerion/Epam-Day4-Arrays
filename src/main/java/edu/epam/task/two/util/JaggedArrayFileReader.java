@@ -1,7 +1,8 @@
 package edu.epam.task.two.util;
 
-import edu.epam.task.one.exception.FileExсeption;
+import edu.epam.task.one.entity.WrapperArray;
 import edu.epam.task.two.entity.WrapperJaggedArray;
+import edu.epam.task.two.exception.WrapperJaggedArrayFileReaderException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,10 +19,10 @@ public class JaggedArrayFileReader {
 
     private static final Logger logger = LogManager.getLogger();
 
-    public WrapperJaggedArray fillFromFile(String inputFileName) throws FileExсeption{
+    public WrapperJaggedArray fillFromFile(String inputFileName) throws WrapperJaggedArrayFileReaderException {
         File inputFile = new File(inputFileName);
         if (!(inputFile.exists())) {
-            throw new FileExсeption("Input file doesn't exist");
+            throw new WrapperJaggedArrayFileReaderException("Input file doesn't exist");
         }
         String line;
         List<String> data = new ArrayList<>();
@@ -34,12 +35,19 @@ public class JaggedArrayFileReader {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        int rows = data.size();
-        int columns = data.get(0).split(" ").length;
-        System.out.println(rows + " " + columns);
-        WrapperJaggedArray result = new WrapperJaggedArray(rows, columns);
-        for (int i = 0; i < result.getRows(); i++) {
-            for (int j = 0; j < result.getColumns(); j++) {
+        int jaggedSize = data.size();
+        int[] sizesOfEachRow = new int[jaggedSize];
+        for (int i = 0; i < sizesOfEachRow.length; i++) {
+            sizesOfEachRow[i] = data.get(i).split(" ").length;
+        }
+        WrapperJaggedArray result = new WrapperJaggedArray(jaggedSize);
+        for (int i = 0; i < result.getArraySize();) {
+            for (int j = 0; j < sizesOfEachRow.length; j++) {
+                result.setRow(new WrapperArray(sizesOfEachRow[j]),i++);
+            }
+        }
+        for (int i = 0; i < result.getArraySize(); i++) {
+            for (int j = 0; j < result.getRowSize(i); j++) {
                 String[] oneDim = data.get(i).split(" ");
                 result.setItem(Integer.parseInt(oneDim[j]), i, j);
             }

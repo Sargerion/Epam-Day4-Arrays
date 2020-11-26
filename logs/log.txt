@@ -1,0 +1,135 @@
+27 нояб. 2020 01:00:46,145 [main] INFO  FindJaggedArrayService - 154 - max item in row 
+array=[10, 23, 154, 4, 32]
+
+27 нояб. 2020 01:00:46,162 [main] INFO  FindJaggedArrayService - 8 - max item in row 
+array=[8, -3, 2, -87]
+
+27 нояб. 2020 01:00:46,163 [main] INFO  FindJaggedArrayService - 154 - max item in row 
+array=[10, 23, 154, 4, 32]
+
+27 нояб. 2020 01:00:46,163 [main] INFO  FindJaggedArrayService - 15 - max item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:00:46,163 [main] INFO  FindJaggedArrayService - 154 - max item in row 
+array=[10, 23, 154, 4, 32]
+
+27 нояб. 2020 01:00:46,164 [main] INFO  FindJaggedArrayService - 253 - max item in row 
+array=[1, 253, 4, 90, 1, 60]
+
+27 нояб. 2020 01:00:46,164 [main] INFO  FindJaggedArrayService - 8 - max item in row 
+array=[8, -3, 2, -87]
+
+27 нояб. 2020 01:00:46,165 [main] INFO  FindJaggedArrayService - 15 - max item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:00:46,165 [main] INFO  FindJaggedArrayService - 15 - max item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:00:46,165 [main] INFO  FindJaggedArrayService - 154 - max item in row 
+array=[10, 23, 154, 4, 32]
+
+27 нояб. 2020 01:00:46,165 [main] INFO  FindJaggedArrayService - 8 - max item in row 
+array=[8, -3, 2, -87]
+
+27 нояб. 2020 01:00:46,166 [main] INFO  FindJaggedArrayService - 15 - max item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:00:46,166 [main] INFO  BubbleSortService - Bubble sort by class edu.epam.task.two.comparator.MaxNumberComparator completed successfully : result JaggedArray {
+1 253 4 90 1 60 
+10 23 154 4 32 
+0 15 
+8 -3 2 -87 
+}
+27 нояб. 2020 01:00:46,166 [main] INFO  FindJaggedArrayService - Row's 
+array=[1, 253, 4, 90, 1, 60]
+ sum is 409
+27 нояб. 2020 01:00:46,167 [main] INFO  FindJaggedArrayService - Row's 
+array=[10, 23, 154, 4, 32]
+ sum is 223
+27 нояб. 2020 01:00:46,167 [main] INFO  FindJaggedArrayService - Row's 
+array=[1, 253, 4, 90, 1, 60]
+ sum is 409
+27 нояб. 2020 01:00:46,167 [main] INFO  FindJaggedArrayService - Row's 
+array=[0, 15]
+ sum is 15
+27 нояб. 2020 01:00:46,168 [main] INFO  FindJaggedArrayService - Row's 
+array=[1, 253, 4, 90, 1, 60]
+ sum is 409
+27 нояб. 2020 01:00:46,168 [main] INFO  FindJaggedArrayService - Row's 
+array=[8, -3, 2, -87]
+ sum is -80
+27 нояб. 2020 01:00:46,168 [main] INFO  FindJaggedArrayService - Row's 
+array=[10, 23, 154, 4, 32]
+ sum is 223
+27 нояб. 2020 01:00:46,169 [main] INFO  FindJaggedArrayService - Row's 
+array=[0, 15]
+ sum is 15
+27 нояб. 2020 01:00:46,169 [main] INFO  FindJaggedArrayService - Row's 
+array=[10, 23, 154, 4, 32]
+ sum is 223
+27 нояб. 2020 01:00:46,169 [main] INFO  FindJaggedArrayService - Row's 
+array=[8, -3, 2, -87]
+ sum is -80
+27 нояб. 2020 01:00:46,170 [main] INFO  FindJaggedArrayService - Row's 
+array=[0, 15]
+ sum is 15
+27 нояб. 2020 01:00:46,170 [main] INFO  FindJaggedArrayService - Row's 
+array=[8, -3, 2, -87]
+ sum is -80
+27 нояб. 2020 01:00:46,170 [main] INFO  BubbleSortService - Bubble sort by class edu.epam.task.two.comparator.SumComparator completed successfully : result JaggedArray {
+1 253 4 90 1 60 
+10 23 154 4 32 
+0 15 
+8 -3 2 -87 
+}
+27 нояб. 2020 01:01:18,081 [main] INFO  JaggedArrayFileReader -  JaggedArray {
+10 23 154 4 32 
+8 -3 2 -87 
+0 15 
+1 253 4 90 1 60 
+} was filled from input_files/input_jagged_array.txt file successfully
+27 нояб. 2020 01:01:18,088 [main] INFO  FindJaggedArrayService - 4 - min item in row 
+array=[10, 23, 154, 4, 32]
+
+27 нояб. 2020 01:01:18,088 [main] INFO  FindJaggedArrayService - -87 - min item in row 
+array=[8, -3, 2, -87]
+
+27 нояб. 2020 01:01:18,088 [main] INFO  FindJaggedArrayService - 4 - min item in row 
+array=[10, 23, 154, 4, 32]
+
+27 нояб. 2020 01:01:18,088 [main] INFO  FindJaggedArrayService - 0 - min item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:01:18,089 [main] INFO  FindJaggedArrayService - 4 - min item in row 
+array=[10, 23, 154, 4, 32]
+
+27 нояб. 2020 01:01:18,089 [main] INFO  FindJaggedArrayService - 1 - min item in row 
+array=[1, 253, 4, 90, 1, 60]
+
+27 нояб. 2020 01:01:18,089 [main] INFO  FindJaggedArrayService - -87 - min item in row 
+array=[8, -3, 2, -87]
+
+27 нояб. 2020 01:01:18,089 [main] INFO  FindJaggedArrayService - 0 - min item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:01:18,089 [main] INFO  FindJaggedArrayService - 0 - min item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:01:18,090 [main] INFO  FindJaggedArrayService - 1 - min item in row 
+array=[1, 253, 4, 90, 1, 60]
+
+27 нояб. 2020 01:01:18,090 [main] INFO  FindJaggedArrayService - -87 - min item in row 
+array=[8, -3, 2, -87]
+
+27 нояб. 2020 01:01:18,090 [main] INFO  FindJaggedArrayService - 0 - min item in row 
+array=[0, 15]
+
+27 нояб. 2020 01:01:18,091 [main] INFO  BubbleSortService - Bubble sort by class edu.epam.task.two.comparator.MinNumberComparator completed successfully : result JaggedArray {
+10 23 154 4 32 
+1 253 4 90 1 60 
+0 15 
+8 -3 2 -87 
+}
+27 нояб. 2020 01:32:15,115 [main] INFO  ArrayFileReader -  
+array=[10, 23, 154, 4, 4, 322, 3, 516, -3, 2, -4, 0, -9]
+ was filled from input_files/input_array.txt file successfully

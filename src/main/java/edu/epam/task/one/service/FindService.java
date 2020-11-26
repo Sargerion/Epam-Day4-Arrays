@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FindService {
@@ -92,22 +91,24 @@ public class FindService {
 
     private boolean isPrime(int number) {
         SieveForFindService sieve = new SieveForFindService(PRIMES_BOUND);
+        boolean flag = false;
         for (int i = 0; i < sieve.getSize(); i++) {
             if (Math.abs(number) == sieve.getItem(i)) {
-                return true;
+                flag = true;
             }
         }
-        return false;
+        return flag;
     }
 
     private boolean isFib(int number) {
         FibSequenceForFindService sequence = new FibSequenceForFindService(FIBS_BOUND);
+        boolean flag = false;
         for (int i = 0; i < sequence.getSize(); i++) {
             if(sequence.getItem(i) == Math.abs(number)){
-                return true;
+                flag = true;
             }
         }
-        return false;
+        return flag;
     }
 
     private int countDigits(int num) {

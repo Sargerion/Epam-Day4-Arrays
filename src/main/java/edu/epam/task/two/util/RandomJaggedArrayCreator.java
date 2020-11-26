@@ -8,11 +8,11 @@ public class RandomJaggedArrayCreator {
 
     private static final int RANDOM_BOUND = 100;
 
-    public void fillFromRandom(WrapperJaggedArray array) {
+    public void fillFromRandom(WrapperJaggedArray jaggedArray) {
         Random rnd = new Random();
-        for (int i = 0; i < array.getRows(); i++) {
-            for (int j = 0; j < array.getColumns(); j++) {
-                array.setItem(rnd.nextInt(RANDOM_BOUND), i, j);
+        for (int i = 0; i < jaggedArray.getArraySize(); i++) {
+            for (int j = 0; j < jaggedArray.getRowSize(i); j++) {
+                jaggedArray.setItem(rnd.nextInt(RANDOM_BOUND), i, j);
             }
         }
     }

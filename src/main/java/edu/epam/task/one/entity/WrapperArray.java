@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class WrapperArray {
 
     private int[] array;
-    private int size;
 
     public WrapperArray() {
 
@@ -18,7 +17,6 @@ public class WrapperArray {
     }
 
     public WrapperArray(int size) {
-        this.size = size;
         array = new int[size];
     }
 
@@ -27,7 +25,7 @@ public class WrapperArray {
     }
 
     public void setItem(int item, int index) {
-        if (index < 0 && index > size - 1) {
+        if ((index < 0) || (index > array.length - 1)) {
             try {
                 throw new WrapperArrayExсeption("Incorrect index");
             } catch (WrapperArrayExсeption ex) {
@@ -38,7 +36,7 @@ public class WrapperArray {
     }
 
     public int getSize() {
-        return size;
+        return array.length;
     }
 
     @Override
@@ -61,7 +59,7 @@ public class WrapperArray {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("Array{\n").append("array=").append(Arrays.toString(array)).append("\n}");
+        sb.append("\narray=").append(Arrays.toString(array)).append("\n");
         return sb.toString();
     }
 }

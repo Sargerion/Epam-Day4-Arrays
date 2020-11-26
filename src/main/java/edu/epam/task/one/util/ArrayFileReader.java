@@ -1,7 +1,7 @@
 package edu.epam.task.one.util;
 
 import edu.epam.task.one.entity.WrapperArray;
-import edu.epam.task.one.exception.FileExсeption;
+import edu.epam.task.one.exception.FileArrayExсeption;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,15 +17,19 @@ public class ArrayFileReader {
 
     private static final Logger logger = LogManager.getLogger();
 
-    public void fillFromFile(String inputFileName, WrapperArray array) throws FileExсeption {
+    public WrapperArray fillFromFile(String inputFileName) throws FileArrayExсeption {
         File inputFile = new File(inputFileName);
         if (!(inputFile.exists())) {
-            throw new FileExсeption("Input file doesn't exist");
+            throw new FileArrayExсeption("Input file doesn't exist");
         }
+        int size = 0;
+        WrapperArray array = null;
         String line;
         Scanner scanner = null;
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
             while ((line = reader.readLine()) != null) {
+                size = Integer.parseInt(line.substring(line.indexOf("(") + 1, line.indexOf(")")));
+                array = new WrapperArray(size);
                 line = line.substring(line.indexOf(":") + 1, line.length());
                 scanner = new Scanner(line).useDelimiter(" ");
                 for (int i = 0; i < array.getSize(); i++) {
@@ -38,24 +42,6 @@ public class ArrayFileReader {
             ex.printStackTrace();
         }
         logger.info(" {} was filled from {} file successfully", array, inputFileName);
-    }
-
-    public int getArraySizeFromFile(String inputFileName) throws FileExсeption {
-        File inputFile = new File(inputFileName);
-        if (!(inputFile.exists())) {
-            throw new FileExсeption("Input file doesn't exist");
-        }
-        int size = 0;
-        String line;
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
-            while ((line = reader.readLine()) != null) {
-                size = Integer.parseInt(line.substring(line.indexOf("(") + 1, line.indexOf(")")));
-            }
-        } catch (FileNotFoundException e) {
-            logger.fatal("File not found");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return size;
+        return array;
     }
 }

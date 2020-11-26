@@ -1,49 +1,68 @@
 package edu.epam.task.two.entity;
 
+import edu.epam.task.one.entity.WrapperArray;
 import edu.epam.task.two.exception.WrapperJaggedArrayException;
 
 import java.util.Arrays;
 
 public class WrapperJaggedArray {
 
-    private int rows;
-    private int columns;
-    private int[][] array;
+    private WrapperArray[] jaggedArray;
 
-    public WrapperJaggedArray(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
-        array = new int[rows][columns];
+    public WrapperJaggedArray(int rows) {
+        jaggedArray = new WrapperArray[rows];
     }
 
-    public int getRows() {
-        return rows;
+    public WrapperJaggedArray(WrapperArray... array) {
+        jaggedArray = new WrapperArray[array.length];
+        for (int i = 0; i < jaggedArray.length; i++) {
+            jaggedArray[i] = array[i];
+        }
     }
 
-    public int getColumns() {
-        return columns;
+    public WrapperArray getRow(int index) {
+        return jaggedArray[index];
     }
 
-    public int getItem(int rowIndex, int columnIndex) {
-        return array[rowIndex][columnIndex];
-    }
-
-    public void setItem(int item, int rowIndex, int columnIndex) {
-        if((rowIndex < 0 || rowIndex > rows - 1) && (columnIndex < 0 || columnIndex > columns - 1)) {
+    public void setRow(WrapperArray row, int index) {
+        if((index < 0 ) || (index > jaggedArray.length - 1)) {
             try {
-                throw new WrapperJaggedArrayException("Incorrect indexes");
-            } catch (WrapperJaggedArrayException ex) {
-                ex.printStackTrace();
+                throw new WrapperJaggedArrayException("Incorrect index");
+            } catch (WrapperJaggedArrayException e) {
+                e.printStackTrace();
             }
         }
-        array[rowIndex][columnIndex] = item;
+        jaggedArray[index] = row;
+    }
+
+    public int getArraySize() {
+        return jaggedArray.length;
+    }
+
+    public int getRowSize(int index) {
+        return jaggedArray[index].getSize();
+    }
+
+    public int getItem(int rowIndex, int index) {
+        return jaggedArray[rowIndex].getItem(index);
+    }
+
+    public void setItem(int item, int rowIndex, int index) {
+        if ((rowIndex < 0) || (rowIndex > jaggedArray.length - 1)) {
+            try {
+                throw new WrapperJaggedArrayException("Incorrect indexes");
+            } catch (WrapperJaggedArrayException e) {
+                e.printStackTrace();
+            }
+        }
+        jaggedArray[rowIndex].setItem(item, index);
     }
 
     private String getStringVision(){
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                sb.append(array[i][j]).append(" ");
+        for (int i = 0; i < jaggedArray.length; i++) {
+            for (int j = 0; j < jaggedArray[i].getSize(); j++) {
+                sb.append(jaggedArray[i].getItem(j)).append(" ");
             }
             sb.append("\n");
         }
@@ -58,21 +77,19 @@ public class WrapperJaggedArray {
         if (o == null || !(o instanceof WrapperJaggedArray)) {
             return false;
         }
-        WrapperJaggedArray that = (WrapperJaggedArray) o;
-        return (rows == that.rows) && (columns == that.columns) && Arrays.equals(array, that.array);
+        WrapperJaggedArray jagArr = (WrapperJaggedArray) o;
+        return Arrays.equals(jaggedArray, jagArr.jaggedArray);
     }
 
     @Override
     public int hashCode() {
-        int result = Integer.hashCode(rows);
-        result = 31 * result + Integer.hashCode(columns) + Arrays.hashCode(array);
-        return result;
+        return Arrays.hashCode(jaggedArray);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Array{\n");
-        sb.append("array=\n").append(getStringVision()).append("}");
+        final StringBuilder sb = new StringBuilder("JaggedArray {\n");
+        sb.append(getStringVision()).append("}");
         return sb.toString();
     }
 }
